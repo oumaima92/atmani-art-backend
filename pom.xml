@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>atmani.art</groupId>
-    <artifactId>project</artifactId>
+    <artifactId>atmani-art-bakend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>project</name>
     <description>atmani art project</description>
@@ -67,6 +67,21 @@
             <artifactId>jakarta.validation-api</artifactId>
             <version>3.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations-jakarta</artifactId>
+            <version>2.2.7</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>2.2.21</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -74,6 +89,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>atmani.art.project.ProjectApplication</mainClass>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.openapitools</groupId>
@@ -90,6 +108,11 @@
                             <output>${project.build.directory}/generated-sources/openapi</output>
                             <modelPackage>atmani.art.project.v1.model</modelPackage>
                             <apiPackage>atmani.art.project.v1.api</apiPackage>
+                            <configOptions>
+                                <useSpringBoot3>true</useSpringBoot3>
+                                <useJakartaEe>true</useJakartaEe>
+                                <library>spring-boot</library>
+                            </configOptions>
                         </configuration>
                     </execution>
                 </executions>
