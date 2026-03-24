@@ -96,7 +96,7 @@
             <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>7.5.0</version> <!-- Add explicit version -->
+                <version>7.11.0</version> <!-- Add explicit version -->
                 <executions>
                     <execution>
                         <goals>
@@ -112,6 +112,8 @@
                                 <useSpringBoot3>true</useSpringBoot3>
                                 <useJakartaEe>true</useJakartaEe>
                                 <library>spring-boot</library>
+                                <interfaceOnly>true</interfaceOnly>
+                                <skipDefaultInterface>true</skipDefaultInterface>
                             </configOptions>
                         </configuration>
                     </execution>

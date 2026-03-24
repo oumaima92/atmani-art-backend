@@ -19,7 +19,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Product'
+                  $ref: '#/components/schemas/ProductDTO'
     
     post:
       summary: Add a new product
@@ -29,14 +29,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Product'
+              $ref: '#/components/schemas/ProductDTO'
       responses:
         '201':
           description: Product created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Product'
+                $ref: '#/components/schemas/ProductDTO'
 
   /products/{id}:
     get:
@@ -55,7 +55,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Product'
+                $ref: '#/components/schemas/ProductDTO'
     
     put:
       summary: Update product
@@ -73,14 +73,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Product'
+              $ref: '#/components/schemas/ProductDTO'
       responses:
         '200':
           description: Product updated successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Product'
+                $ref: '#/components/schemas/ProductDTO'
     
     delete:
       summary: Delete product by ID
@@ -107,7 +107,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Category'
+                  $ref: '#/components/schemas/CategoryDTO'
     
     post:
       summary: Add a new category
@@ -117,14 +117,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Category'
+              $ref: '#/components/schemas/CategoryDTO'
       responses:
         '201':
           description: Category created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Category'
+                $ref: '#/components/schemas/CategoryDTO'
 
   /categories/{id}:
     get:
@@ -143,7 +143,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Category'
+                $ref: '#/components/schemas/CategoryDTO'
     
     put:
       summary: Update category
@@ -161,14 +161,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Category'
+              $ref: '#/components/schemas/CategoryDTO'
       responses:
         '200':
           description: Category updated successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Category'
+                $ref: '#/components/schemas/CategoryDTO'
     
     delete:
       summary: Delete category by ID
@@ -186,7 +186,7 @@ paths:
 
 components:
   schemas:
-    Product:
+    ProductDTO:
       type: object
       required:
         - id
@@ -222,8 +222,9 @@ components:
               - YELLOW
               - PURPLE
               - OTHER
-        category:
-          $ref: '#/components/schemas/Category'
+        categoryName:
+          type: string
+          description: the category name
         shape:
           type: string
           enum:
@@ -239,7 +240,7 @@ components:
           description: The product's price.
           example: 100
     
-    Category:
+    CategoryDTO:
       type: object
       required:
         - id
