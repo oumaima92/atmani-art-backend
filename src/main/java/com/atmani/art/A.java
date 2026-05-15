@@ -1,4 +1,4 @@
-package atmani.art.project;
+package com.atmani.art;
 
 
 public class A {

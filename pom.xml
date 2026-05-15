@@ -90,7 +90,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>atmani.art.project.ProjectApplication</mainClass>
+                    <mainClass>com.atmani.art.ProjectApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>

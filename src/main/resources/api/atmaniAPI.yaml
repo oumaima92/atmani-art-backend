@@ -11,6 +11,7 @@ paths:
   /products:
     get:
       summary: Returns a list of products
+      operationId: getProducts
       responses:
         '200':
           description: A list of products
@@ -23,6 +24,7 @@ paths:
     
     post:
       summary: Add a new product
+      operationId: addProduct
       requestBody:
         description: Product object that needs to be created
         required: true
@@ -41,6 +43,7 @@ paths:
   /products/{id}:
     get:
       summary: Get product by ID
+      operationId: getProductById
       parameters:
         - name: id
           in: path
@@ -59,6 +62,7 @@ paths:
     
     put:
       summary: Update product
+      operationId: updateProduct
       parameters:
         - name: id
           in: path
@@ -84,6 +88,7 @@ paths:
     
     delete:
       summary: Delete product by ID
+      operationId: deleteProductById
       parameters:
         - name: id
           in: path
@@ -99,6 +104,7 @@ paths:
   /categories:
     get:
       summary: Returns a list of categories
+      operationId: getCategories
       responses:
         '200':
           description: A list of categories
@@ -111,6 +117,7 @@ paths:
     
     post:
       summary: Add a new category
+      operationId: addCategory
       requestBody:
         description: Category object that needs to be created
         required: true
@@ -129,6 +136,7 @@ paths:
   /categories/{id}:
     get:
       summary: Get category by ID
+      operationId: getCategoryById
       parameters:
         - name: id
           in: path
@@ -146,7 +154,8 @@ paths:
                 $ref: '#/components/schemas/CategoryDTO'
     
     put:
-      summary: Update category
+      summary: Update existing category
+      operationId: updateCategory
       parameters:
         - name: id
           in: path
@@ -172,6 +181,7 @@ paths:
     
     delete:
       summary: Delete category by ID
+      operationId: deleteCategoryById
       parameters:
         - name: id
           in: path
