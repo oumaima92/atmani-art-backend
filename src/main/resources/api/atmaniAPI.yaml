@@ -211,10 +211,11 @@ components:
           type: string
           description: The product's name.
           example: fountain
-        imagePath:
-          type: string
-          description: The image's path.
-          example: fountain
+        productImages:
+          type: array
+          description: The images info.
+          items:
+           $ref : '#/components/schemas/ImageDTO'
         description:
           type: string
           description: The product's description.
@@ -223,27 +224,12 @@ components:
           type: array
           items:
             type: string
-            enum:
-              - RED
-              - BLUE
-              - GREEN
-              - BLACK
-              - WHITE
-              - YELLOW
-              - PURPLE
-              - OTHER
         categoryName:
           type: string
           description: the category name
         shape:
           type: string
-          enum:
-            - Circular
-            - Oval
-            - SquareShaped
-            - Rectangular
-            - Irregular
-            - Other
+
         price:
           type: integer
           format: int64
@@ -265,15 +251,24 @@ components:
           type: string
           description: The category's name.
           example: fountains
-        image:
-          type: string
-          description: The image's path.
-          example: /images/fountains.jpg
+        categoryImage:
+          $ref: '#/components/schemas/ImageDTO'
         description:
           type: string
           description: The category's description.
           example: Black rectangular fountain
-    
+
+    ImageDTO:
+      properties:
+        url:
+          type: string
+          description: the url to retrieve the image
+        isPrimary:
+          type: boolean
+          description: To indicate whether it's the main image
+        altText:
+          type: string
+          description: Description of the image
     Error:
       type: object
       required:

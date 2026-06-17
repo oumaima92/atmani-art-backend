@@ -1,12 +1,15 @@
-package com.atmani.art.controllers;
+package com.atmani.art.controller;
 
+import atmani.art.project.v1.api.CategoriesApi;
+import atmani.art.project.v1.model.CategoryDTO;
 import com.atmani.art.repo.CategoriesRepo;
-import com.atmani.art.v1.api.CategoriesApi;
-import com.atmani.art.v1.model.CategoryDTO;
+
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@RestController
 public class CategoriesController implements CategoriesApi {
     private CategoriesRepo categoriesRepo;
 
@@ -16,7 +19,7 @@ public class CategoriesController implements CategoriesApi {
 
     @Override
     public ResponseEntity<List<CategoryDTO>> getCategories() {
-        return ResponseEntity.ok(categoriesRepo.findAll());
+        return null;
     }
 
     @Override
