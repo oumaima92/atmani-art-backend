@@ -260,6 +260,9 @@ components:
 
     ImageDTO:
       properties:
+        id:
+          type: integer
+          format: int64
         url:
           type: string
           description: the url to retrieve the image

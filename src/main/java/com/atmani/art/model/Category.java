@@ -4,12 +4,14 @@ import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +19,7 @@ public class Category implements Serializable {
     private String name;
     private String description;
     @OneToOne
+    @JoinColumn(name = "image_id")
     private Image categoryImage;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Product> productList;

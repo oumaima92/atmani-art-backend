@@ -18,4 +18,12 @@ public class CategoryMapper {
         categoryDTO.setCategoryImage(imageMapper.toImageDTO(category.getCategoryImage()));
         return categoryDTO;
     }
+
+    public Category toEntity(CategoryDTO categoryDTO) {
+        Category category = new Category();
+        category.setDescription(categoryDTO.getDescription());
+        category.setName(categoryDTO.getName());
+        category.setId(categoryDTO.getId());
+        return category;
+    }
 }

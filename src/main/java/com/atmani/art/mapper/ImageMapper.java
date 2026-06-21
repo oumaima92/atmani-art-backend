@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 public class ImageMapper {
     public ImageDTO toImageDTO(Image image) {
         ImageDTO imageDTO = new ImageDTO();
+        imageDTO.setId(image.getId());
         imageDTO.setUrl("localhost:8080/images/" + image.getId()); //TODO
         imageDTO.setAltText(image.getAltText());
         imageDTO.setIsPrimary(image.isPrimary());

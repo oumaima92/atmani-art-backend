@@ -2,10 +2,12 @@ package com.atmani.art.model;
 
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,11 +16,10 @@ public class Image {
     private boolean isPrimary;
     @CreatedDate
     private LocalDateTime uploadedAt;
-    @Lob
-    @Column(name = "data", columnDefinition = "BYTEA")
-    private byte[] data;
+    @Column(columnDefinition = "TEXT") // To avoid storing it by default as a varchar of length 255
+    private String data;
 
-    public Image(Long id, String altText, boolean isPrimary, LocalDateTime uploadedAt, byte[] data) {
+    public Image(Long id, String altText, boolean isPrimary, LocalDateTime uploadedAt, String data) {
         this.id = id;
         this.altText = altText;
         this.isPrimary = isPrimary;
@@ -45,7 +46,7 @@ public class Image {
         return uploadedAt;
     }
 
-    public byte[] getData() {
+    public String getData() {
         return data;
     }
 
@@ -65,7 +66,7 @@ public class Image {
         this.uploadedAt = uploadedAt;
     }
 
-    public void setData(byte[] data) {
+    public void setData(String data) {
         this.data = data;
     }
 }
